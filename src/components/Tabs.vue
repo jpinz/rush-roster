@@ -1,38 +1,34 @@
 <template>
-  <div id="app">
-    <Header v-if="showNav"></Header>
-
-    <div>
-      <sui-tab
-        :menu="{ attached: false, secondary: true, pointing: true }"
-        @change="handleChange"
-        :active-index="activeIndex"
+  <div>
+    <sui-tab
+      :menu="{ attached: false, secondary: true, pointing: true }"
+      @change="handleChange"
+      :active-index="activeIndex"
+    >
+      <sui-tab-pane title="Rushees" :attached="false">
+        <router-view />
+      </sui-tab-pane>
+      <sui-tab-pane title="Voting" :attached="false">
+        <router-view />
+      </sui-tab-pane>
+      <sui-tab-pane title="Account" :attached="false">
+        <router-view />
+      </sui-tab-pane>
+      <sui-tab-pane
+        title="Users"
+        :attached="false"
+        v-if="userProfile.permission > 0"
       >
-        <sui-tab-pane title="Rushees" :attached="false">
-          <router-view />
-        </sui-tab-pane>
-        <sui-tab-pane title="Voting" :attached="false">
-          <router-view />
-        </sui-tab-pane>
-        <sui-tab-pane title="Account" :attached="false">
-          <router-view />
-        </sui-tab-pane>
-        <sui-tab-pane
-          title="Users"
-          :attached="false"
-          v-if="userProfile.permission > 0"
-        >
-          <router-view />
-        </sui-tab-pane>
-        <sui-tab-pane
-          title="Settings"
-          :attached="false"
-          v-if="userProfile.permission > 0"
-        >
-          <router-view />
-        </sui-tab-pane>
-      </sui-tab>
-    </div>
+        <router-view />
+      </sui-tab-pane>
+      <sui-tab-pane
+        title="Settings"
+        :attached="false"
+        v-if="userProfile.permission > 0"
+      >
+        <router-view />
+      </sui-tab-pane>
+    </sui-tab>
   </div>
 </template>
 
