@@ -81,12 +81,15 @@ const store = new Vuex.Store({
     },
     async fetchUserProfile({ commit }, user) {
       // fetch user profile
+      var userId = user.email.substr(0, user.email.indexOf("@"));
       fb.db
-        .ref("bros/" + user.email.substr(0, user.email.indexOf("@")))
+        .ref("bros/" + userId)
         .once("value")
         .then(function(snapshot) {
           // set user profile in state
-          commit("setUserProfile", snapshot.val());
+          var profile = snapshot.val();
+          profile.id = userId;
+          commit("setUserProfile", profile);
         });
 
       // change route to dashboard

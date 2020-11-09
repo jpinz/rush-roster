@@ -25,6 +25,8 @@ export default {
 </script>
 
 <style>
+@import url("https://cdn.materialdesignicons.com/5.3.45/css/materialdesignicons.min.css");
+
 .App {
   text-align: center;
 }

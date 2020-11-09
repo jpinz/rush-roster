@@ -6,8 +6,8 @@
         <h1 align="center">Rush Roster</h1>
       </sui-grid-column>
       <sui-grid-column>
-        <p>{{ userProfile.name }}</p>
-        <b-button v-on:click="logout">
+        <p>{{ userProfile.name }} {{ userProfile.bromoji }}</p>
+        <b-button inverted outlined v-on:click="logout">
           Log out
         </b-button>
       </sui-grid-column>
